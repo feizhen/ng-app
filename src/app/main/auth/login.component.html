@@ -8,10 +8,10 @@
     </div>
     <div class="login-input-field flex-column">
       <md-form-field class="full-width username">
-        <input mdInput placeholder="用户名">
+        <input mdInput placeholder="用户名" [(ngModel)]="user.username" (blur)="onBlur(user.username)">
       </md-form-field>
       <md-form-field class="full-width password">
-        <input mdInput placeholder="密码">
+        <input mdInput type="password" placeholder="密码" [(ngModel)]="user.password">
       </md-form-field>
       <div class="full-width options flex-row">
         <section>
@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="login-actions flex-column">
-      <button md-raised-button color="primary">
+      <button md-raised-button color="primary" (click)="handleLogin()">
         登录
       </button>
     </div>

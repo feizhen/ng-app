@@ -1,7 +1,7 @@
 .login-container {
   width: 100%;
   height: 100%;
-  background: url('../../../assets/images/bg.jpg') no-repeat fixed center;
+  background: url('/assets/images/bg.jpg') no-repeat fixed center;
   overflow: scroll;
   font-size: 0.9rem;
 }
@@ -10,7 +10,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);  
+  transform: translate(-50%, -50%);
   /* 登录框尺寸 */
   width: 360px;
   height: 550px;
@@ -26,7 +26,7 @@
 .logo {
   width: 128px;
   height: 128px;
-  background: url('../../../assets/images/logo.png') no-repeat center center / 128px 76px;
+  background: url('/assets/images/logo.png') no-repeat center center / 128px 76px;
 }
 
 .login-input-field {

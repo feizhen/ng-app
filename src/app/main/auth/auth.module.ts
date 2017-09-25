@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { 
   MdCardModule,
   MdGridListModule,
@@ -19,6 +20,7 @@ import { LoginComponent } from './login.component';
     MdInputModule,
     MdCheckboxModule,
     MdButtonModule,
+    FormsModule,
   ],
   exports: [
     LoginComponent
