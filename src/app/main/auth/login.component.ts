@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../services/index';
 
@@ -35,7 +36,10 @@ export class LoginComponent {
     Validators.required
   ]);
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router
+  ) { }
 
   handleLogin(): void {
     if (this.usernameFormControl.valid && this.passwordFormControl.valid) {
@@ -61,7 +65,9 @@ export class LoginComponent {
                 text: '登录成功',
                 fail: false
               };
-              console.log(sucess.json()); // 打印返回的消息
+              this.router.navigate(['/admin']);
+              // 打印返回的消息
+              console.log(sucess.json());
             },
             err => {
               // 登录失败 -> 提示失败信息

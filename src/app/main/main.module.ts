@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 // 加载开发的核心模块
 import { AuthModule } from './auth/auth.module';
+import { AdminModule } from './admin/admin.module';
 
 // 加载开发的服务
 import { 
@@ -11,9 +12,11 @@ import {
 @NgModule({
   imports: [
     AuthModule,
+    AdminModule,
   ],
   exports: [
     AuthModule,
+    AdminModule,
   ],
   providers: [
     AuthenticationService,
