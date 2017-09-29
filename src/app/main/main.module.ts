@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 
+// 加载开发的核心模块
 import { AuthModule } from './auth/auth.module';
-import { ErrorModule } from './error/error.module';
 
+// 加载开发的服务
 import { 
   AuthenticationService,
-} from './services/index';
+} from './services';
 
 @NgModule({
   imports: [
     AuthModule,
-    ErrorModule,
   ],
   exports: [
     AuthModule,
-    ErrorModule,
   ],
   providers: [
     AuthenticationService,

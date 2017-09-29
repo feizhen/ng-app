@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './main/auth/login.component';
-import { PageNotFoundComponent } from './main/error/page-not-found.component';
+import { PageNotFoundComponent } from './error/page-not-found.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
   {
     path: '',
     redirectTo: '/login',

@@ -61,6 +61,7 @@ export class LoginComponent {
                 text: '登录成功',
                 fail: false
               };
+              console.log(sucess.json()); // 打印返回的消息
             },
             err => {
               // 登录失败 -> 提示失败信息

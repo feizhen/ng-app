@@ -10,6 +10,8 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 
+import { AuthRoutingModule } from './auth-routing.module';
+
 import { LoginComponent } from './login.component';
 
 @NgModule({
@@ -17,18 +19,16 @@ import { LoginComponent } from './login.component';
     LoginComponent
   ],
   imports: [
-    FormsModule,
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     MdCardModule,
     MdGridListModule,
     MdInputModule,
     MdCheckboxModule,
     MdButtonModule,
-    MatProgressSpinnerModule
-  ],
-  exports: [
-    LoginComponent
+    MatProgressSpinnerModule,
+    AuthRoutingModule,
   ]
 })
 
