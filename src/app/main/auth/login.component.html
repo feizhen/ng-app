@@ -3,15 +3,38 @@
     <div class="login-intro flex-column">
       <div class="login-logo flex-column flex-center">
         <div class="logo"></div>
-        <p>请登录</p>
+        <p [class.auth-fail]="auth.fail">{{auth.text}}</p>
       </div>
     </div>
-    <div class="login-input-field flex-column">
+    <div class="login-input-field flex-column" >
       <md-form-field class="full-width username">
-        <input mdInput placeholder="用户名" [(ngModel)]="user.username" (blur)="onBlur(user.username)">
+        <input mdInput
+          id="username"
+          name="username"
+          placeholder="用户名"
+          required
+          [formControl]="usernameFormControl"
+          [(ngModel)]="loginForm.username"
+          (keyup)="handleKeyup($event)"
+        >
+        <md-error *ngIf="usernameFormControl.hasError('required')">
+          用户名不能为空
+        </md-error>
       </md-form-field>
       <md-form-field class="full-width password">
-        <input mdInput type="password" placeholder="密码" [(ngModel)]="user.password">
+        <input mdInput
+          id="password"
+          name="password"
+          type="password"
+          placeholder="密码"
+          required
+          [formControl]="passwordFormControl"
+          [(ngModel)]="loginForm.password"
+          (keyup)="handleKeyup($event)"
+        >
+        <md-error *ngIf="passwordFormControl.hasError('required')">
+          密码不能为空
+        </md-error>
       </md-form-field>
       <div class="full-width options flex-row">
         <section>
@@ -23,8 +46,14 @@
       </div>
     </div>
     <div class="login-actions flex-column">
-      <button md-raised-button color="primary" (click)="handleLogin()">
-        登录
+      <button md-raised-button 
+        class="flex-row"
+        color="primary"
+        (click)="handleLogin()"
+        [disabled]="loading"
+      >
+        <md-spinner class="loading-spinner" *ngIf="loading" strokeWidth="10" color="gray"></md-spinner>
+        {{loginBtnText}}
       </button>
     </div>
   </md-card>

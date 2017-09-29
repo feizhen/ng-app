@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { AuthModule } from './auth/auth.module';
 import { ErrorModule } from './error/error.module';
 
-import { AuthenticationService } from './services/index';
+import { 
+  AuthenticationService,
+} from './services/index';
 
 @NgModule({
   imports: [
@@ -15,7 +17,7 @@ import { AuthenticationService } from './services/index';
     ErrorModule,
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
   ]
 })
 

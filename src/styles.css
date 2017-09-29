@@ -24,3 +24,6 @@ a {
 .full-width {
   width: 100%;
 }
+.loading-spinner path {
+  stroke: rgba(0, 0, 0, 0.38);
+}
