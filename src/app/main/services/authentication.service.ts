@@ -1,17 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { LoginForm } from '../auth/login.component';
+
+interface LoginResponse {
+  _id: string,
+  username: string,
+  realname: string,
+  token: string,
+  role: Array<string>
+}
 
 @Injectable()
 
 export class AuthenticationService {
-  constructor(private http: Http) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   login(loginForm: LoginForm) {
-    return this.http.post('/api/auth/login', loginForm);
+    return this.http.post<LoginResponse>('/api/auth/login', loginForm);
   }
 
   logout() {
+    window.localStorage.removeItem('token');
     console.log('use logout')
   }
 }

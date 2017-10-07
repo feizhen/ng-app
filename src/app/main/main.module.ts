@@ -7,6 +7,7 @@ import { AdminModule } from './admin/admin.module';
 // 加载开发的服务
 import { 
   AuthenticationService,
+  MethodService,
 } from './services';
 
 @NgModule({
@@ -20,6 +21,7 @@ import {
   ],
   providers: [
     AuthenticationService,
+    MethodService
   ]
 })
 
