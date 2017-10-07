@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { MethodService } from '../services';
+import { UserService } from '../services';
 
 @Component({
   templateUrl: './admin.component.html',
-  // 一旦提供了providers就取不到了
-  // providers: [MethodService]
 })
 
 export class AdminComponent implements OnInit { 
@@ -15,10 +13,18 @@ export class AdminComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private method: MethodService
+    private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.method.testMethod(); // 测试成功，可以获取到在登录时设置的token
+    this.userService.getAllUsers()
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 }

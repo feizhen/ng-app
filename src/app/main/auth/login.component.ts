@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { 
   AuthenticationService,
-  MethodService,
 } from '../services';
 
 import md5 from 'md5';
@@ -18,9 +17,6 @@ export class LoginForm {
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [
-    AuthenticationService,
-  ]
 })
 
 export class LoginComponent {
@@ -45,7 +41,6 @@ export class LoginComponent {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private method: MethodService,
   ) { }
 
   setLoadingState(loading: boolean, isFail: boolean, authMsg: string): void {
@@ -82,8 +77,8 @@ export class LoginComponent {
             response => {     
               this.setLoadingState(false, false, '登录成功');
 
-              this.method.setAccessToken(response.token);
-              window.localStorage.setItem('currentUser', JSON.stringify(response));
+              localStorage.setItem('token', response.token);
+              localStorage.setItem('currentUser', JSON.stringify(response));
 
               // 登录成功 -> 路由跳转
               this.router.navigate(['/admin']);

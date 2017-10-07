@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 // 加载开发的核心模块
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 // 加载开发的服务
 import { 
   AuthenticationService,
-  MethodService,
+  UserService,
 } from './services';
 
 @NgModule({
@@ -21,7 +23,12 @@ import {
   ],
   providers: [
     AuthenticationService,
-    MethodService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 
