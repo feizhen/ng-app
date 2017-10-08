@@ -18,7 +18,7 @@ interface AllUsersResponse {
 export class UserService {
   // #TODO 应该将id定义为Mongo的ObjectId
   constructor(private http: HttpClient) { }
-  getUser(id: String) {
+  getUser(id: string) {
    return this.http.get<UserResponse>('/api/user/id');
   }
   getAllUsers() {
