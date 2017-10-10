@@ -3,7 +3,7 @@
     <div class="login-intro flex-column">
       <div class="login-logo flex-column flex-center">
         <div class="logo"></div>
-        <p [class.auth-fail]="auth.fail">{{auth.text}}</p>
+        <p [class.auth-fail]="!auth.success">{{auth.text}}</p>
       </div>
     </div>
     <div class="login-input-field flex-column" >

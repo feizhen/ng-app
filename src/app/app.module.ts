@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CoreModule } from './core/core.module';
 import { MainModule } from './main/main.module';
-import { ErrorModule } from './error/error.module';
 import { AppRoutingModule } from './app-router.module';
 
 import { AppComponent } from './app.component';
@@ -22,8 +21,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     CoreModule,
     MainModule,
-    ErrorModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
   ],

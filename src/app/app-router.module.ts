@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PageNotFoundComponent } from './error/page-not-found.component';
+import { PageNotFoundComponent } from './main/error/page-not-found.component';
 import { GroupToolComponent } from './main/group-tool/group-tool.component';
 
 const appRoutes: Routes = [

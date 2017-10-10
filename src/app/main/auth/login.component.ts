@@ -22,7 +22,7 @@ export class LoginForm {
 export class LoginComponent {
   auth = {
     text: '用户登录',
-    fail: false
+    success: true
   };
   loading = false;
   loginBtnText = '登录';
@@ -43,27 +43,31 @@ export class LoginComponent {
     private router: Router,
   ) { }
 
-  setLoadingState(loading: boolean, isFail: boolean, authMsg: string): void {
+  setLoadingState(loading: boolean, isSuccess: boolean, authMsg: string): void {
     if (loading) {
       this.loading = loading;
       this.loginBtnText = '登录中...';
       this.auth = {
         text: '用户',
-        fail: false
+        success: isSuccess
       }
     } else {
       this.loading = loading;
       this.loginBtnText = '登录';
       this.auth = {
         text: authMsg,
-        fail: isFail
+        success: isSuccess
       }
     }
   }
 
   handleLogin(): void {
+    const LOADED = false;
+    const LOADING = true;
+    const FAIL = false;
+    const SUCCESS = true;
     if (this.usernameFormControl.valid && this.passwordFormControl.valid) {
-      this.setLoadingState(true, false, '用户');
+      this.setLoadingState(LOADING, SUCCESS, '用户');
       let username = this.loginForm.username;
       let password_md5 = md5(this.loginForm.password);
       // 用setTimeout来模拟网络延迟
@@ -74,8 +78,8 @@ export class LoginComponent {
           password: password_md5
         });
         subscription.subscribe(
-            response => {     
-              this.setLoadingState(false, false, '登录成功');
+            response => {
+              this.setLoadingState(LOADED, SUCCESS, '登录成功');
 
               localStorage.setItem('token', response.token);
               localStorage.setItem('currentUser', JSON.stringify(response));
@@ -84,22 +88,20 @@ export class LoginComponent {
               this.router.navigate(['/admin']);
             },
             err => {
+              console.log(err);
               // 登录失败 -> 提示失败信息
               if (err.status === 404) {
-                this.setLoadingState(false, true, '用户名不存在');
+                this.setLoadingState(LOADED, FAIL, '用户名不存在');
               } else if (err.status === 401) {
-                this.setLoadingState(false, true, '密码错误');
+                this.setLoadingState(LOADED, FAIL, '密码错误');
               } else {
-                this.setLoadingState(false, true, '登录错误');
+                this.setLoadingState(LOADED, FAIL, '登录错误');
               }
             }
           );
       }, 2000);
     } else {
-      this.auth = {
-        text: '请填写正确的用户信息',
-        fail: true
-      }
+      this.setLoadingState(LOADED, FAIL, '请填写正确的用户信息');
     }
   }
   handleKeyup(event): void {
