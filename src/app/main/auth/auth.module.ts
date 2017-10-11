@@ -12,7 +12,7 @@ import {
 
 import { AuthRoutingModule } from './auth-routing.module';
 
-import { LoginComponent } from './login.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [

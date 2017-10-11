@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LoginForm } from '../auth/login.component';
+import { LoginForm } from '../auth/login/login.component';
 
 interface LoginResponse {
   _id: string,
@@ -23,6 +23,5 @@ export class AuthenticationService {
 
   logout() {
     window.localStorage.removeItem('token');
-    console.log('use logout')
   }
 }

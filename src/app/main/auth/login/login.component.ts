@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { 
   AuthenticationService,
-} from '../services';
+} from '../../services/authentication.service';
 
 import md5 from 'md5';
 import _ from 'lodash';
@@ -67,17 +67,18 @@ export class LoginComponent {
     const FAIL = false;
     const SUCCESS = true;
     if (this.usernameFormControl.valid && this.passwordFormControl.valid) {
-      this.setLoadingState(LOADING, SUCCESS, '用户');
+      this.setLoadingState(LOADING, SUCCESS, '登录中...');
       let username = this.loginForm.username;
       let password_md5 = md5(this.loginForm.password);
       // 用setTimeout来模拟网络延迟
       setTimeout(() => {
         const subscription = this.authService
-        .login({
-          username: username,
-          password: password_md5
-        });
-        subscription.subscribe(
+          .login({
+            username: username,
+            password: password_md5
+          });
+        subscription
+          .subscribe(
             response => {
               this.setLoadingState(LOADED, SUCCESS, '登录成功');
 

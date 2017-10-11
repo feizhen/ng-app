@@ -1,0 +1,5 @@
+.admin-main {
+  width: 100%;
+  height: calc(100% - 64px);
+  z-index: 1;
+}

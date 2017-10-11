@@ -4,6 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+import { 
+  MdCardModule,
+  MdGridListModule,
+  MdInputModule,
+  MdCheckboxModule,
+  MdButtonModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
+
 import { CoreModule } from './core/core.module';
 import { MainModule } from './main/main.module';
 import { AppRoutingModule } from './app-router.module';

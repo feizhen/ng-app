@@ -9,19 +9,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 
 // 加载开发的服务
-import { 
-  AuthenticationService,
-  UserService,
-} from './services';
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [
-    AuthModule,
-    AdminModule,
-    ErrorModule,
-    GroupToolModule,
-  ],
-  exports: [
     AuthModule,
     AdminModule,
     ErrorModule,
