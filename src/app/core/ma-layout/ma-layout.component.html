@@ -1,2 +1,4 @@
 <ma-header (menuClick)="toggleSidenav()"></ma-header>
-<ma-sidenav [isOpen]="open"></ma-sidenav>
+<ma-sidenav [isOpen]="open">
+  <ng-content></ng-content>
+</ma-sidenav>
