@@ -5,7 +5,7 @@ html, body, material-app, .main-container {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 18px;
+  font-size: 20px;
 }
 md-sidenav-container {
   width: 100%;
@@ -13,7 +13,7 @@ md-sidenav-container {
 }
 .main-container {
   overflow: scroll;
-  background-color: #ffffff;
+  background-color: #fcfcfc;
 }
 @font-face {
   font-family: 'Material Icons';
@@ -60,6 +60,15 @@ a {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-align-center {
+  align-items: center;
 }
 .flex-center {
   justify-content: center;

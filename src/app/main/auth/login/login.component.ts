@@ -86,7 +86,7 @@ export class LoginComponent {
               localStorage.setItem('currentUser', JSON.stringify(response));
 
               // 登录成功 -> 路由跳转
-              this.router.navigate(['/admin']);
+              this.router.navigate(['/admin/user']);
             },
             err => {
               console.log(err);

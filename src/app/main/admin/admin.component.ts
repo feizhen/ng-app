@@ -1,36 +1,38 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import "rxjs/add/operator/switchMap";
-
-import { UserService } from "../services/user.service";
 
 @Component({
   templateUrl: "./admin.component.html",
   styleUrls: ["./admin.component.css"]
 })
 export class AdminComponent implements OnInit {
-  private open: boolean;
-  private adminUser;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private userService: UserService
-  ) {}
+  private adminSidenavItems;
 
   ngOnInit() {
-    this.open = true;
-    this.userService.getAllUsers().subscribe(
-      response => {
-        console.log(response);
+    this.adminSidenavItems = [
+      {
+        type: 'group',
+        name: "用户管理",
+        open: true,
+        icon: "account_box",
+        children: [
+          {
+            name: '全部用户',
+            router: '/admin/user'
+          }
+        ]
       },
-      err => {
-        console.log(err);
+      {
+        type: 'item',
+        name: "系统管理",
+        icon: "settings_system_daydream",
+        router: "/admin/sys"
+      },
+      {
+        type: 'item',
+        name: "分组管理",
+        icon: "group",
+        router: "/group-tool"
       }
-    );
-  }
-
-  menuClick() {
-    this.open = !this.open;
-    console.log("menuClick");
+    ];
   }
 }

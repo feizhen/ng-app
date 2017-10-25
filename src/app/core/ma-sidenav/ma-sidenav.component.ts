@@ -1,18 +1,13 @@
-import { Component, AfterViewInit, ViewChild, ComponentFactoryResolver, Input} from '@angular/core';
-import { ContentDirective } from './content.directive';
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'ma-sidenav',
-  templateUrl: './ma-sidenav.component.html',
-  styleUrls: ['./ma-sidenav.component.css']
+  selector: "ma-sidenav",
+  templateUrl: "./ma-sidenav.component.html",
+  styleUrls: ["./ma-sidenav.component.css"]
 })
-
-export class MaSidenavComponent implements AfterViewInit {
+export class MaSidenavComponent implements OnInit {
   @Input() isOpen: boolean;
-  
-  @ViewChild(ContentDirective) contentHost: ContentDirective;
-  
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  @Input() items: Array<any>;
 
-  ngAfterViewInit() { }
+  ngOnInit() {}
 }

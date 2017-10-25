@@ -1,0 +1,11 @@
+.sidenav-element-container {
+  margin-bottom: .5em;
+}
+.sidenav-item-container {
+  padding: 0 0;
+  width: 100%;
+}
+.sidenav-subitem-container {
+  background-color: #eeeeee;
+  width: 100%;
+}

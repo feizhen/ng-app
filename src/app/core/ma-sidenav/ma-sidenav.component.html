@@ -1,5 +1,6 @@
 <md-sidenav-container class="ma-sidenav-container">
   <md-sidenav class="ma-sidenav" [opened]="isOpen" mode="side">
+    <ma-sidenav-item *ngFor="let item of items" [item]="item"></ma-sidenav-item>
   </md-sidenav>
   <div class="main-container">
     <ng-content></ng-content>

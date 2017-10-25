@@ -1,0 +1,11 @@
+<button md-button class="item-content-btn" [routerLink]="item.router">
+  <div class="flex-row flex-align-center flex-justify-between">
+    <div class="left flex-row flex-align-center">
+      <i *ngIf="item.icon" class="material-icons left-icon">{{item.icon}}</i>
+      <span>{{ item.name }}</span>
+    </div>
+    <div class="right flex-row flex-align-center" *ngIf="item.type && item.type === 'group'">
+      <i class="material-icons right-icon">keyboard_arrow_right</i>
+    </div>
+  </div>
+</button>
