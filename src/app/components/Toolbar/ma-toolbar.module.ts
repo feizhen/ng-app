@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { MatToolbarModule, MatButtonModule } from "@angular/material";
 
-import { MaHeaderComponent } from "./ma-header.component";
+import { MaToolbarComponent } from "./ma-toolbar.component";
 
 @NgModule({
-  declarations: [MaHeaderComponent],
+  declarations: [MaToolbarComponent],
   imports: [MatToolbarModule, MatButtonModule],
-  exports: [MaHeaderComponent]
+  exports: [MaToolbarComponent]
 })
-export class MaHeaderModule {}
+export class MaToolbarModule {}

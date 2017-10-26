@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
-import { MaHeaderModule } from "../ma-header/ma-header.module";
-import { MaSidenavModule } from "../ma-sidenav/ma-sidenav.module";
+import { MaSidenavModule } from "../Sidenav/ma-sidenav.module";
+import { MaToolbarModule } from "../Toolbar/ma-toolbar.module";
 
 import { MaLayoutComponent } from "./ma-layout.component";
 
 @NgModule({
   declarations: [MaLayoutComponent],
-  imports: [MaHeaderModule, MaSidenavModule],
+  imports: [MaSidenavModule, MaToolbarModule],
   exports: [MaLayoutComponent]
 })
 export class MaLayoutModule {}

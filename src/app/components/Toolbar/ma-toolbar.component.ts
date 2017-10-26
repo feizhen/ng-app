@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
-  selector: "ma-header",
-  templateUrl: "./ma-header.component.html",
-  styleUrls: ["./ma-header.component.css"]
+  selector: "ma-toolbar",
+  templateUrl: "./ma-toolbar.component.html",
+  styleUrls: ["./ma-toolbar.component.scss"]
 })
-export class MaHeaderComponent {
+export class MaToolbarComponent {
   @Output() menuClick: EventEmitter<any> = new EventEmitter();
 
   handleClick() {

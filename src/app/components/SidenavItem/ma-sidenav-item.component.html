@@ -1,8 +1,8 @@
 <div class="sidenav-element-container">
   <div class="sidenav-item-container">
-    <item-content [item]="item"></item-content>
+    <sub-item [item]="item"></sub-item>
   </div>
   <div class="sidenav-subitem-container">
-    <item-content *ngFor="let subitem of item.children" [item]="subitem"></item-content>
+    <sub-item *ngFor="let subitem of item.children" [item]="subitem"></sub-item>
   </div>
 </div>

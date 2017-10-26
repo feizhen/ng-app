@@ -1,0 +1,15 @@
+.item-content-btn {
+  padding: .4em 1em;
+  width: 100%;
+  font-size: 0.8em;
+  .left-icon {
+    font-size: 1.3em;
+    margin-right: 0.6em;
+  }
+  .right-icon {
+    margin-right: -0.3em;
+  }
+  span, i {
+    margin-left: .5em;
+  }
+}

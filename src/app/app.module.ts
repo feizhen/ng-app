@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AppRoutingModule } from "./app-router.module";
 import { ApiInterceptor } from "./api-service/interceptor/api.interceptor";
 import { LoginModule } from "./modules/login/login.module";
+import { AdminModule } from './modules/admin/admin.module';
 
 import { AppComponent } from "./app.component";
 
@@ -19,7 +20,8 @@ import { AppComponent } from "./app.component";
     CommonModule,
     HttpClientModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    AdminModule,
   ],
   providers: [
     {

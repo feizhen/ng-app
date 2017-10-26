@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { AuthService } from "../../api-service/methods/auth.service";
 import { LoginForm, LoginFormState } from "../../models/login";
@@ -28,7 +29,7 @@ export class LoginComponent {
   passwordFormControl = new FormControl(this.loginForm.password, [
     Validators.required
   ]);
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   loginSuccess(response): void {
     this.state.text = "用户登录";
@@ -36,6 +37,7 @@ export class LoginComponent {
     this.state.success = true;
     this.state.btnText = "登录";
     // 路由跳转...
+    this.router.navigate(["/admin"]);
   }
 
   loginFail(err): void {
