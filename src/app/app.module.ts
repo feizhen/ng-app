@@ -1,39 +1,33 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
-import { 
-  MdCardModule,
-  MdGridListModule,
-  MdInputModule,
-  MdCheckboxModule,
-  MdButtonModule,
-  MatProgressSpinnerModule
-} from '@angular/material';
+import { AppRoutingModule } from "./app-router.module";
+import { ApiInterceptor } from "./api-service/interceptor/api.interceptor";
+import { LoginModule } from "./modules/login/login.module";
 
-import { CoreModule } from './core/core.module';
-import { MainModule } from './main/main.module';
-import { AppRoutingModule } from './app-router.module';
-
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
-    CoreModule,
-    MainModule,
     AppRoutingModule,
+    LoginModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

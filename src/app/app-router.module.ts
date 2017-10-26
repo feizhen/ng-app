@@ -1,36 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-import { PageNotFoundComponent } from './main/error/page-not-found.component';
-import { GroupToolComponent } from './main/group-tool/group-tool.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
 const appRoutes: Routes = [
   {
-    path: 'group-tool',
-    component: GroupToolComponent
-  },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
+    path: "",
+    redirectTo: "/login",
+    pathMatch: "full"
   }
-]
+  // {
+  //   path: '**',
+  //   component: PageNotFoundComponent
+  // }
+];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      appRoutes,
+      appRoutes
       // { enableTracing: true }
     )
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
-
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}
