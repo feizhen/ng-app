@@ -1,7 +1,7 @@
 export interface SidenavItem {
   type: string;
   name: string;
-  open?: boolean;
+  active?: boolean;
   icon?: string;
   router?: string;
   clickFn?: Function;

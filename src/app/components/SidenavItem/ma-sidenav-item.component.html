@@ -1,8 +1,8 @@
 <div class="sidenav-element-container">
-  <div class="sidenav-item-container">
-    <sub-item [item]="item"></sub-item>
+  <div class="sidenav-item-container" (click)="toggleItem()">
+    <sub-item [item]="item" [isActive]="isActive"></sub-item>
   </div>
-  <div class="sidenav-subitem-container">
+  <div class="sidenav-subitem-container" [@itemToggle]="isActive">
     <sub-item *ngFor="let subitem of item.children" [item]="subitem"></sub-item>
   </div>
 </div>

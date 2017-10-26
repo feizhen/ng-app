@@ -17,7 +17,8 @@ export class AdminComponent implements OnInit {
           {
             type: "item",
             name: "学生用户",
-            icon: "book"
+            icon: "book",
+            router: "/admin/user"
           },
           {
             type: "item",
@@ -27,9 +28,10 @@ export class AdminComponent implements OnInit {
         ]
       },
       {
-        type: "group",
+        type: "item",
         name: "系统管理",
-        icon: "settings_system_daydream"
+        icon: "settings_system_daydream",
+        router: "/admin/system"
       }
     ];
   }
