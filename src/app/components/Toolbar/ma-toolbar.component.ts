@@ -6,7 +6,7 @@ import {
   animate,
   transition
 } from "@angular/animations";
-
+import { AuthService } from "../../api-service/methods/auth.service";
 export const ICON_ANIMATION = "225ms";
 @Component({
   selector: "ma-toolbar",
@@ -22,12 +22,15 @@ export const ICON_ANIMATION = "225ms";
 })
 export class MaToolbarComponent implements OnInit {
   private isOpen: string;
+  private user: object;
   @Output() menuClick: EventEmitter<any> = new EventEmitter();
+  constructor(private authService: AuthService) {}
   ngOnInit() {
-    this.isOpen = 'expanded';
+    this.isOpen = "expanded";
+    this.user = this.authService.getCurrentUser();
   }
   handleClick() {
-    this.isOpen = this.isOpen === 'expanded' ? 'collapsed' : 'expanded';
+    this.isOpen = this.isOpen === "expanded" ? "collapsed" : "expanded";
     this.menuClick.emit(null);
   }
 }

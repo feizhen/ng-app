@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { LoginForm, LoginResponse } from "../../models/login";
+import { CurrentUser } from "../../models/user";
 
 @Injectable()
 export class AuthService {
@@ -28,5 +29,10 @@ export class AuthService {
       );
     });
     return p;
+  }
+  getCurrentUser(): CurrentUser {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    user.avatar = '../../../assets/images/avatar.jpg';
+    return user;
   }
 }

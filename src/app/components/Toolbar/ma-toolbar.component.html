@@ -1,6 +1,37 @@
 <md-toolbar class="ma-header" color="warn">
-  <button md-icon-button class="header-menu" (click)="handleClick()">
-    <i class="material-icons" [@iconState]="isOpen">&#xE5D2;</i>
-  </button>
-  <span>My Achievements</span>
+  <div class="flex-row flex-center">
+    <button md-icon-button class="header-menu" (click)="handleClick()">
+      <i class="material-icons" [@iconState]="isOpen">&#xE5D2;</i>
+    </button>
+    <span>My Achievements</span>
+  </div>
+  <span class="fill-remain"></span>
+  <div class="profile flex-row flex-center">
+    <button md-button>
+      <div class="flex-row flex-center notifier">
+        <i class="material-icons no-icon">textsms</i>
+        5
+      </div>
+    </button>
+    <button md-button [mdMenuTriggerFor]="menu">
+      <div class="user-profile flex-row flex-center">
+        <img class="user-avatar" [src]="user.avatar" alt="用户头像"> {{user.realname}}
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
+    </button>
+    <md-menu class="menu-item" #menu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
+      <button md-menu-item>
+        <div class="flex-row flex-center">
+          <i class="material-icons icon">person</i>
+          用户信息
+        </div>
+      </button>
+      <button md-menu-item>
+        <div class="flex-row flex-center">
+          <i class="material-icons icon">exit_to_app</i>
+          退出登录
+        </div>
+      </button>
+    </md-menu>
+  </div>
 </md-toolbar>
