@@ -1,0 +1,22 @@
+.item-content-btn {
+  padding: 0.4em 1em;
+  width: 100%;
+  font-size: 0.8em;
+  .left-icon {
+    font-size: 1.3em;
+    margin: 0 .7em 0 .5em;
+  }
+  .right-icon {
+    margin-right: -0.3em;
+  }
+}
+.children-items-container {
+  background-color: #eeeeee;
+  width: 100%;
+  overflow: hidden;
+}
+:host /deep/ .children-items-container {
+  button {
+    padding-left: 2em;
+  }
+}

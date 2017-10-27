@@ -23,7 +23,8 @@ export class AdminComponent implements OnInit {
           {
             type: "item",
             name: "教师用户",
-            icon: "work"
+            icon: "work",
+            router: "/admin"
           }
         ]
       },

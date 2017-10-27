@@ -5,5 +5,5 @@ export interface SidenavItem {
   icon?: string;
   router?: string;
   clickFn?: Function;
-  children?: Array<object>;
+  children?: Array<SidenavItem>;
 }

@@ -1,0 +1,23 @@
+<div class="group-item-container">
+  <div class="parent-item-container">
+    <button md-button class="item-content-btn" (click)="toggleItem()">
+      <div class="flex-row flex-align-center flex-justify-between">
+        <div class="left flex-row flex-align-center">
+          <i *ngIf="item.icon" class="material-icons left-icon">{{item.icon}}</i>
+          <span>{{ item.name }}</span>
+        </div>
+        <div class="right flex-row flex-align-center" *ngIf="item.type && item.type === 'group'">
+          <i class="material-icons right-icon" [@iconState]="isActive">keyboard_arrow_right</i>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <div class="children-items-container"
+    *ngIf="item.type === 'group' && item.children.length > 0"
+    [@itemToggle]="isActive"
+  >
+    <sub-item *ngFor="let subitem of item.children" [item]="subitem"></sub-item>
+  </div>
+
+</div>

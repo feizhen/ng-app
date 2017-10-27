@@ -2,16 +2,3 @@
   padding: 0 0;
   width: 100%;
 }
-.sidenav-subitem-container {
-  background-color: #eeeeee;
-  width: 100%;
-  overflow: hidden;
-}
-:host /deep/ .sidenav-subitem-container {
-  button {
-    padding-left: 2em;
-  }
-}
-.active {
-  display: none;
-}

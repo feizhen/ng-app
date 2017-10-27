@@ -20,11 +20,6 @@ export const ICON_CHANGE_ANIMATION = "225ms";
     ])
   ]
 })
-export class SubItemComponent implements OnInit {
-  private color: string;
+export class SubItemComponent {
   @Input() item: SidenavItem;
-  @Input() isActive: string;
-  ngOnInit() {
-    this.color = this.item.active ? "warn" : "";
-  }
 }
