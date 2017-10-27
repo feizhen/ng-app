@@ -76,6 +76,9 @@ body {
   padding: 0;
 }
 .main-container {
+  padding: 1em;
+  width: calc(100% - 2em);
+  min-height: calc(100% - 2em);
   overflow: scroll;
   background-color: #fcfcfc;
 }
